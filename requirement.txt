@@ -1,0 +1,38 @@
+1) Make sure the following are installed:
+Python (3.7+ recommended)
+pip (Python package manager)
+VS Code
+VS Code extensions:
+Python extension (by Microsoft)
+Jupyter (for running .ipynb, optional)
+
+2) Either a .py file (recommended for production)
+Or a .ipynb Jupyter Notebook (to mirror Colab)
+
+3)pip install reportlab pillow pdfplumber pymupdf pandas numpy
+
+4)
+pdf_project/
+├── pdf_extractor.py
+├── sample_pdfs/         ← this will be auto-created
+
+5)!pip works only in Colab; use pip install in terminal instead
+
+6)  Run the script with python pdf_extractor.py
+
+Else files also executed in similar manner 
+
+These three codes are for different uses :--
+1) extraction codes
+the untitled5 is a basic code for extraction 
+having several attributes like page no ,text ,font ,name,size ,coordinates ,top ,bottom,etc 
+
+2) the adobe_testing_pdfs is also a extraction code with little enhanced version of the untitled5 codefile
+
+now the last code file which is claude_adv is a full fledged code generated with some tweaks and the
+pdf u provided with the help of those ir is full fledge code but might need some checks and all as it is 
+first copy all three codes are error free and creates csv files for model training the last two code also creates json files
+along with a png to show the execution and the output of the code also all 3 codes generates the test 
+pdf of their own but the codes are not hardcoded for those pdfs also the pdf which they generate are diverse
+from tables to simple font to multiple font and all
+
