@@ -7,6 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/1PL3pOx-o2Mc5uNps2omJOZt7OvogoGZt
 """
 
+
+
 # 1) INSTALL DEPENDENCIES
 !pip install reportlab pillow pdfplumber pymupdf pandas numpy
 
