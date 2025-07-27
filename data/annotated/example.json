@@ -1,0 +1,59 @@
+{
+    "pdf_file": "example.pdf",
+    "blocks": [
+        {
+            "id": 0,
+            "text": "Research Paper Title",
+            "page": 1,
+            "role": "Title"
+        },
+        {
+            "id": 1,
+            "text": "Abstract",
+            "page": 1,
+            "role": "H1"
+        },
+        {
+            "id": 2,
+            "text": "This is the abstract text that describes the paper...",
+            "page": 1,
+            "role": "Body"
+        },
+        {
+            "id": 3,
+            "text": "1. Introduction",
+            "page": 2,
+            "role": "H1"
+        },
+        {
+            "id": 4,
+            "text": "This is the introduction text...",
+            "page": 2,
+            "role": "Body"
+        },
+        {
+            "id": 5,
+            "text": "1.1 Background",
+            "page": 2,
+            "role": "H2"
+        },
+        {
+            "id": 6,
+            "text": "Background information goes here...",
+            "page": 2,
+            "role": "Body"
+        },
+        {
+            "id": 7,
+            "text": "2. Methodology",
+            "page": 3,
+            "role": "H1"
+        },
+        {
+            "id": 8,
+            "text": "The methodology section describes our approach...",
+            "page": 3,
+            "role": "Body"
+        }
+    ]
+}
