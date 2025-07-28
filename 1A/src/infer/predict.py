@@ -10,12 +10,41 @@ from collections import defaultdict
 # Add src directory to path to handle relative imports
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from extract.features import extract_document_adaptive_features, FEATURE_COLUMNS
-from .batch_predict import build_outline_from_headings
+from extract import extract_document_adaptive_features, FEATURE_COLUMNS
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s:%(message)s')
+logging.basicConfig(level=logging.INFO, format='%(levelname)s:%(name)s')
 logger = logging.getLogger(__name__)
+
+def build_outline_from_headings(headings_df):
+    """
+    Build a hierarchical outline from a DataFrame of detected headings.
+    """
+    if headings_df.empty:
+        return []
+
+    outline = []
+    # Sort by page and vertical position if possible
+    sort_cols = []
+    if 'page_num' in headings_df.columns:
+        sort_cols.append('page_num')
+    if 'bbox_y0' in headings_df.columns:
+        sort_cols.append('bbox_y0')
+    
+    if sort_cols:
+        headings_df = headings_df.sort_values(by=sort_cols)
+    
+    for _, row in headings_df.iterrows():
+        # Use text_block if available, otherwise fall back to text
+        text_col = 'text_block' if 'text_block' in row else 'text'
+        page_col = 'page_num' if 'page_num' in row else 0
+        
+        outline.append({
+            "level": row['role'],
+            "text": row[text_col],
+            "page": int(row[page_col]) + 1  # 1-based page number for output
+        })
+    return outline
 
 # Define absolute path for the model inside the container
 CONTAINER_MODEL_PATH = "/app/models/enhanced_lightgbm_model.txt"
@@ -79,6 +108,16 @@ class PDFHeadingExtractor:
                 logger.warning(f"No features extracted from {pdf_path}. Returning empty structure.")
                 return {"title": "", "outline": []}
 
+            # Add standard column names that the rest of the code expects
+            features_df['text_block'] = features_df['text']  # Rename text to text_block
+            
+            # Fix column names for bbox coordinates
+            if 'bbox' in features_df.columns:
+                bbox_values = features_df['bbox'].tolist()
+                features_df['bbox_y0'] = [b[1] if isinstance(b, list) and len(b) > 1 else 0 for b in bbox_values]
+            else:
+                features_df['bbox_y0'] = 0  # Default value if no bbox column
+                
             # Align columns with the features the model was trained on
             X_predict = features_df.reindex(columns=self.feature_names, fill_value=0)
             
@@ -88,26 +127,30 @@ class PDFHeadingExtractor:
             
             features_df['role'] = [ROLE_MAPPING.get(label, 'Body') for label in predicted_labels]
 
-            # Extract title
+            # Extract title - use available font size column
             title_candidates = features_df[features_df['role'] == 'Title']
             if not title_candidates.empty:
-                title = title_candidates.loc[title_candidates['font_size'].idxmax()]['text_block']
+                # Try different possible font size column names
+                for col in ['font_size', 'font_size_ratio_max', 'font_size_zscore']:
+                    if col in title_candidates.columns:
+                        title = title_candidates.nlargest(1, col).iloc[0]['text_block']
+                        break
+                else:  # No suitable column found
+                    title = title_candidates.iloc[0]['text_block']
             else:
                 # Fallback: use the highest text block on the first page with largest font
-                first_page_blocks = features_df[features_df['page'] == 0]
+                first_page_blocks = features_df[features_df['page_num'] == 0]  # Changed from 'page' to 'page_num'
                 if not first_page_blocks.empty:
-                    # Heuristic: use nlargest to safely get the row with the largest font size
-                    title_block_df = first_page_blocks.nlargest(1, 'font_size')
-                    
-                    if not title_block_df.empty:
-                        title_block = title_block_df.iloc[0]
-                        # Check if this block is a likely title
-                        if title_block['font_size'] > doc_stats.get('median_font_size', 0) + 2 and \
-                           title_block['word_count'] < 20:
-                            title = title_block['text_block']
-                        else:
-                            title = ""
-                    else:
+                    # Try different possible font size column names
+                    for col in ['font_size', 'font_size_ratio_max', 'font_size_zscore']:
+                        if col in first_page_blocks.columns:
+                            title_block_df = first_page_blocks.nlargest(1, col)
+                            if not title_block_df.empty:
+                                title_block = title_block_df.iloc[0]
+                                # Check if this block is a likely title using a simpler heuristic
+                                title = title_block['text_block']
+                                break
+                    else:  # No suitable column found
                         title = ""
                 else:
                     title = ""
@@ -116,7 +159,7 @@ class PDFHeadingExtractor:
             headings = features_df[features_df['role'].isin(['H1', 'H2', 'H3'])]
             outline = build_outline_from_headings(headings)
             
-            return {"title": title.strip(), "outline": outline}
+            return {"title": title.strip() if title else "", "outline": outline}
 
         except Exception as e:
             logger.error(f"Failed to predict structure for {pdf_path}: {e}")

@@ -1,4 +1,130 @@
 {
-  "title": "",
-  "outline": []
+  "title": "Overview Foundation Level Extensions",
+  "outline": [
+    {
+      "level": "H1",
+      "text": "Overview Foundation Level Extensions",
+      "page": 1
+    },
+    {
+      "level": "H1",
+      "text": "Revision History",
+      "page": 3
+    },
+    {
+      "level": "H1",
+      "text": "Version",
+      "page": 3
+    },
+    {
+      "level": "H1",
+      "text": "Table of Contents",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "Revision History .......................................................................................................................................... Table of Contents ........................................................................................................................................ Introduction to the Foundation Level Extensions",
+      "page": 4
+    },
+    {
+      "level": "H1",
+      "text": "Acknowledgements",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "This document was produced by a team from the International Software Testing Qualifications Board Foundation Level Working Group. The Agile Extension team thanks the review team and the National Boards for their suggestions and input. At the time the Foundation Level Agile Extension Syllabus was completed, the Agile Extension Working Group had the following membership: Rex Black (Chair), Bertrand Cornanguer (Vice Chair), Gerry Coleman (Learning Objectives Lead), Debra Friedenberg (Exam Lead), Alon Linetzki (Business Outcomes and Marketing Lead), Tauhida Parveen (Editor), and Leo van der Aalst (Development Lead). Authors: Rex Black, Anders Claesson, Gerry Coleman, Bertrand Cornanguer, Istvan Forgacs, Alon Linetzki, Tilo Linz, Leo van der Aalst, Marie Walsh, and Stephan Weber. Internal Reviewers: Mette Bruhn-Pedersen, Christopher Clements, Alessandro Collino, Debra Friedenberg, Kari Kakkonen, Beata Karpinska, Sammy Kolluru, Jennifer Leger, Thomas Mueller, Tuula Pääkkönen, Meile Posthuma, Gabor Puhalla, Lloyd Roden, Marko Rytkönen, Monika Stoecklein-Olsen, Robert Treffny, Chris Van Bael, and Erik van Veenendaal. The team thanks also the following persons, from the National Boards and the Agile expert community, who participated in reviewing, commenting, and balloting of the Foundation Agile Extension Syllabus: Dani Almog, Richard Berns, Stephen Bird, Monika Bögge, Afeng Chai, Josephine Crawford, Tibor Csöndes, Huba Demeter, Arnaud Foucal, Cyril Fumery, Kobi Halperin, Inga Hansen, Hanne Hinz, Jidong Hu, Phill Isles, Shirley Itah, Martin Klonk, Kjell Lauren, Igal Levi, Rik Marselis, Johan Meivert, Armin Metzger, Peter Morgan,",
+      "page": 5
+    },
+    {
+      "level": "H1",
+      "text": "This overview document is intended for anyone with an interest in the ISTQB Foundation Level Extensions who wants a high-level introduction to the leading principles and an overview of the individual extension syllabi. From time to time, ISTQB will update this document to reflect any additional extensions that shall be introduced for the Foundation Level, or to reflect major changes in existing ones. Publications of the updated document will be available on the ISTQB website. The ISTQB Foundation and Advanced Level syllabi have been defined and have been on the market for some time. New topics emerge due to technology and methodology changes in the market which often are brought into the ISTQB program as new Expert Level syllabi. However, not all topics are suited for the Expert Level. For this reason, the extension syllabi are established at the Foundation Level to expand the ISTQB program to incorporate new or updated knowledge. New extensions shall be discussed and introduced by the ISTQB periodically. Extensions may be established at the Advanced Level as well, but that is beyond the scope of this document. The following Foundation Level Extension syllabus has been released: Agile Tester In this document, each Foundation Level Extension syllabus is summarized and the associated Business Outcomes are stated. The Business Outcomes communicate what can be expected from a person who achieves a Foundation Level Extension Certification in a particular subject area (e.g., Agile Tester), and will outline the benefits for companies that are considering the development of specific testing skills at this level.",
+      "page": 6
+    },
+    {
+      "level": "H1",
+      "text": "The certification for Foundation Level Extension –",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "The Foundation Level Extension – Agile Tester qualification is aimed at four main groups of professionals: 1. Professionals who have achieved in-depth testing experience in traditional methods and would like to get an Agile Tester Certificate. 2. Junior professional testers who are just starting in the testing profession, have received the Foundation Level certificate, and would like to know more about",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "Building on the Foundation Level, the Agile Tester Extension supports the definition of career paths for professional testers. A person with the Agile Tester certificate has extended the broad understanding of testing acquired at the Foundation Level to enable him or her to work effectively as a professional tester in an Agile project. People possessing an ISTQB Foundation Level Extension –",
+      "page": 7
+    },
+    {
+      "level": "H2",
+      "text": "In general, the Foundation Level syllabus is examinable at a K1 level, i.e., the candidate will recognize, remember and recall terms and concepts stated in the Foundation Level syllabus. In addition, all Foundation Level syllabus learning objectives are examinable at the same K- level in an extension exam. Version 2014",
+      "page": 7
+    },
+    {
+      "level": "H1",
+      "text": "2.4 Entry Requirements",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "To be able to participate in a Foundation Level Extension –",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "The Foundation Level Extension – Agile Tester syllabus has no shared or common elements with the Foundation Level syllabus. The syllabi must be taught in the following minimum number of days:",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "Baseline: Foundation Extension: Agile Tester The following figure shows the structure of the Agile Tester Extension and its relationship to the Foundation Level.",
+      "page": 8
+    },
+    {
+      "level": "H2",
+      "text": "The software industry changes rapidly. To deal with these changes and to provide the stakeholders with access to relevant and current information, the ISTQB working groups have created links on the in the industry. This information is not examinable under this syllabus.",
+      "page": 9
+    },
+    {
+      "level": "H1",
+      "text": "Syllabus",
+      "page": 10
+    },
+    {
+      "level": "H1",
+      "text": "3.1 Business Outcomes",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "This section lists the Business Outcomes expected of a candidate who has achieved the Foundation Level Extension – Agile Tester certification. An Agile Tester can... Collaborate in a cross-functional Agile team being familiar with principles and basic practices of Agile software development. Adapt existing testing experience and knowledge to Agile values and principles. Support the Agile team in planning test-related activities. Apply relevant methods and techniques for testing in an Agile project. Assist the Agile team in test automation activities. Assist business stakeholders in defining understandable and testable user stories, scenarios, requirements and acceptance criteria as appropriate. Work and share information with other team members using effective communication styles and channels. In general, a Certified Tester Foundation Level – Agile Tester is expected to have acquired the necessary skills to working effectively within an Agile team and environment.",
+      "page": 10
+    },
+    {
+      "level": "H2",
+      "text": "Chapter 1: Agile Software Development The tester should remember the basic concept of Agile software development based on the Agile Manifesto. The tester should understand the advantages of the whole-team approach and the benefits of early and frequent feedback. The tester should recall Agile software development approaches. The tester should be able to write testable user stories in collaboration with developers and business representatives. The tester should understand how retrospectives can be used as a mechanism for process improvement in Agile projects. The tester should understand the use and purpose of continuous integration. The tester should know the differences between iteration and release planning, and how a tester adds value in each of these activities. Version 2014",
+      "page": 10
+    },
+    {
+      "level": "H1",
+      "text": "References",
+      "page": 12
+    },
+    {
+      "level": "H1",
+      "text": "4.1 Trademarks",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "The following registered trademarks and service marks are used in this document: is a registered trademark of the International Software Testing Qualifications Board ISTQB",
+      "page": 12
+    },
+    {
+      "level": "H2",
+      "text": "Identifier Reference",
+      "page": 12
+    }
+  ]
 }
