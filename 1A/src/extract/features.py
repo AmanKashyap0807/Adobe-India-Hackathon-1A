@@ -282,4 +282,4 @@ def extract_document_adaptive_features(pdf_path):
             ),
         }
         features.append(f)
-    return features
+    return features, stats
