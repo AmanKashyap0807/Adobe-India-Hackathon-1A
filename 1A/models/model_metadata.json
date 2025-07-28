@@ -1,0 +1,247 @@
+{
+  "model_type": "LightGBM Enhanced",
+  "version": "2.0.0",
+  "features": [
+    "font_size_zscore",
+    "font_size_percentile",
+    "font_size_ratio_max",
+    "font_size_ratio_median",
+    "is_bold",
+    "is_italic",
+    "y_position_normalized",
+    "x_position_normalized",
+    "space_above_ratio",
+    "horizontal_alignment",
+    "text_length_zscore",
+    "word_count_zscore",
+    "starts_with_number",
+    "case_pattern",
+    "text_density_around",
+    "follows_whitespace",
+    "text_uniqueness",
+    "element_count",
+    "is_bullet_list",
+    "is_table_content",
+    "bbox_aspect_ratio",
+    "semantic_type_table_block",
+    "semantic_type_text_block"
+  ],
+  "feature_count": 23,
+  "label_mapping": {
+    "Body": 0,
+    "Title": 1,
+    "H1": 2,
+    "H2": 3,
+    "H3": 4
+  },
+  "model_params": {
+    "objective": "multiclass",
+    "num_class": 5,
+    "metric": "multi_logloss",
+    "boosting_type": "gbdt",
+    "num_leaves": 31,
+    "learning_rate": 0.08,
+    "feature_fraction": 0.85,
+    "bagging_fraction": 0.85,
+    "bagging_freq": 5,
+    "max_depth": 7,
+    "min_child_samples": 8,
+    "reg_alpha": 0.05,
+    "reg_lambda": 0.05,
+    "random_state": 42,
+    "verbosity": -1,
+    "class_weight": "balanced"
+  },
+  "training_date": "2025-07-28T21:59:21.940226",
+  "training_time_seconds": 4.869754791259766,
+  "dataset_info": {
+    "total_samples": 352,
+    "train_samples": 281,
+    "test_samples": 71,
+    "feature_count": 23
+  },
+  "performance_metrics": {
+    "accuracy": 0.7887323943661971,
+    "classification_report": {
+      "Body": {
+        "precision": 0.9433962264150944,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.8849557522123894,
+        "support": 60.0
+      },
+      "Title": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 1.0
+      },
+      "H1": {
+        "precision": 0.14285714285714285,
+        "recall": 0.25,
+        "f1-score": 0.18181818181818182,
+        "support": 4.0
+      },
+      "H2": {
+        "precision": 0.5,
+        "recall": 0.75,
+        "f1-score": 0.6,
+        "support": 4.0
+      },
+      "H3": {
+        "precision": 0.4,
+        "recall": 1.0,
+        "f1-score": 0.5714285714285715,
+        "support": 2.0
+      },
+      "accuracy": 0.7887323943661971,
+      "macro avg": {
+        "precision": 0.39725067385444746,
+        "recall": 0.5666666666666667,
+        "f1-score": 0.44764050109182857,
+        "support": 71.0
+      },
+      "weighted avg": {
+        "precision": 0.844721157131468,
+        "recall": 0.7887323943661971,
+        "f1-score": 0.8079926056742709,
+        "support": 71.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        50,
+        0,
+        5,
+        3,
+        2
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    ],
+    "feature_importance": [
+      {
+        "feature": "x_position_normalized",
+        "importance": 279
+      },
+      {
+        "feature": "bbox_aspect_ratio",
+        "importance": 245
+      },
+      {
+        "feature": "y_position_normalized",
+        "importance": 240
+      },
+      {
+        "feature": "text_length_zscore",
+        "importance": 152
+      },
+      {
+        "feature": "word_count_zscore",
+        "importance": 109
+      },
+      {
+        "feature": "font_size_zscore",
+        "importance": 63
+      },
+      {
+        "feature": "font_size_ratio_max",
+        "importance": 48
+      },
+      {
+        "feature": "is_bullet_list",
+        "importance": 44
+      },
+      {
+        "feature": "element_count",
+        "importance": 40
+      },
+      {
+        "feature": "font_size_percentile",
+        "importance": 37
+      },
+      {
+        "feature": "case_pattern",
+        "importance": 33
+      },
+      {
+        "feature": "font_size_ratio_median",
+        "importance": 23
+      },
+      {
+        "feature": "starts_with_number",
+        "importance": 15
+      },
+      {
+        "feature": "is_italic",
+        "importance": 12
+      },
+      {
+        "feature": "is_bold",
+        "importance": 5
+      },
+      {
+        "feature": "is_table_content",
+        "importance": 4
+      },
+      {
+        "feature": "semantic_type_table_block",
+        "importance": 0
+      },
+      {
+        "feature": "text_density_around",
+        "importance": 0
+      },
+      {
+        "feature": "text_uniqueness",
+        "importance": 0
+      },
+      {
+        "feature": "follows_whitespace",
+        "importance": 0
+      },
+      {
+        "feature": "horizontal_alignment",
+        "importance": 0
+      },
+      {
+        "feature": "space_above_ratio",
+        "importance": 0
+      },
+      {
+        "feature": "semantic_type_text_block",
+        "importance": 0
+      }
+    ]
+  },
+  "data_quality": {
+    "missing_values_handled": true,
+    "infinite_values_handled": true,
+    "class_imbalance_ratio": 99.0
+  }
+}
