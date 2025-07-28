@@ -34,6 +34,7 @@ def build_outline_from_headings(headings_df):
     if sort_cols:
         headings_df = headings_df.sort_values(by=sort_cols)
     
+    
     for _, row in headings_df.iterrows():
         # Use text_block if available, otherwise fall back to text
         text_col = 'text_block' if 'text_block' in row else 'text'
